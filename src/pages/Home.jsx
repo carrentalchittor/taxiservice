@@ -82,7 +82,9 @@ Please approve my booking.
     <main>
       <section className="hero">
         <div>
+          
           <span className="eyebrow">
+            Best Taxi, Car and Bike Rental Service in Chittorgarh &
             Fast Bike & Taxi Booking
           </span>
 
