@@ -75,7 +75,7 @@ export default function Footer() {
 
           <div className="footerLocation">
             <MapPin size={17} />
-            <span>Chittorgarh, Rajasthan</span>
+            <span>10, Nimbahera Rd, Railway Colony, Chittorgarh, Rajasthan 312001</span>
           </div>
         </div>
       </div>

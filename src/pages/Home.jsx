@@ -93,7 +93,7 @@ Please approve my booking.
           <p>
             Affordable bikes, city taxis and outstation cabs with simple online booking, clear pricing and quick WhatsApp support.
           </p>
-          
+          <p>10, Nimbahera Rd, Railway Colony, Chittorgarh, Rajasthan 312001</p>
 
           <div className="actions">
             <a href="#cars">View Vehicles</a>
@@ -103,6 +103,7 @@ Please approve my booking.
               Call 6378162396
             </button>
           </div>
+          
         </div>
 
       
