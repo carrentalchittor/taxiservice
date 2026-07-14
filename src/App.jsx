@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import AdminOrders from "./pages/AdminOrders";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -12,6 +12,11 @@ import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
 import Services from "./pages/Services";
 import AdminVehicles from "./pages/AdminVehicles";
+import AdminOrders from "./pages/AdminOrders";
+
+import SeoServicePage from "./pages/SeoServicePage";
+import seoPages from "./data/seoPages";
+
 import { useAuth } from "./context/AuthContext";
 
 function Guard({ children, admin = false }) {
@@ -35,16 +40,29 @@ export default function App() {
 
       <main className="appContent">
         <Routes>
+          {/* Main pages */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Legal pages */}
           <Route path="/terms" element={<Legal type="terms" />} />
           <Route
             path="/disclaimer"
             element={<Legal type="disclaimer" />}
           />
 
+          {/* 20 SEO pages */}
+          {seoPages.map((page) => (
+            <Route
+              key={page.slug}
+              path={`/${page.slug}`}
+              element={<SeoServicePage page={page} />}
+            />
+          ))}
+
+          {/* User bookings */}
           <Route
             path="/bookings"
             element={
@@ -54,6 +72,7 @@ export default function App() {
             }
           />
 
+          {/* Admin dashboard */}
           <Route
             path="/admin"
             element={
@@ -62,33 +81,26 @@ export default function App() {
               </Guard>
             }
           />
+
           <Route
-  path="/admin"
-  element={
-    <Guard admin>
-      <Admin />
-    </Guard>
-  }
-/>
+            path="/admin/vehicles"
+            element={
+              <Guard admin>
+                <AdminVehicles />
+              </Guard>
+            }
+          />
 
-<Route
-  path="/admin/vehicles"
-  element={
-    <Guard admin>
-      <AdminVehicles />
-    </Guard>
-  }
-/>
+          <Route
+            path="/admin/orders"
+            element={
+              <Guard admin>
+                <AdminOrders />
+              </Guard>
+            }
+          />
 
-<Route
-  path="/admin/orders"
-  element={
-    <Guard admin>
-      <AdminOrders />
-    </Guard>
-  }
-/>
-
+          {/* Unknown URL */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

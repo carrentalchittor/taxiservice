@@ -1,0 +1,457 @@
+.seoPage {
+  width: 100%;
+  background: #f7f8fc;
+  color: #182235;
+}
+
+.seoContainer {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.seoHero {
+  min-height: 540px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 22, 42, 0.94),
+      rgba(9, 22, 42, 0.66)
+    ),
+    url("/images/taxi-hero.jpg") center/cover no-repeat;
+}
+
+.seoHeroOverlay {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  padding: 70px 0;
+}
+
+.seoBreadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  color: #d8e1ee;
+  font-size: 14px;
+}
+
+.seoBreadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.seoBreadcrumb a:hover {
+  color: #ffb400;
+}
+
+.seoHeroLabel,
+.seoSmallLabel {
+  margin: 0 0 12px;
+  color: #ffb400;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.seoHero h1 {
+  max-width: 850px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 1.05;
+}
+
+.seoHeroDescription {
+  max-width: 750px;
+  margin: 24px 0 0;
+  color: #dbe4f0;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.seoHeroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.seoPrimaryButton,
+.seoWhatsappButton,
+.seoCallButton,
+.seoSideWhatsapp,
+.seoBottomButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 25px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.seoPrimaryButton {
+  background: #ffb400;
+  color: #172033;
+}
+
+.seoPrimaryButton:hover {
+  background: #ffc83f;
+  transform: translateY(-2px);
+}
+
+.seoWhatsappButton {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+
+.seoWhatsappButton:hover {
+  background: #ffffff;
+  color: #172033;
+}
+
+.seoQuickPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  margin-top: 32px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.seoSection {
+  padding: 80px 0;
+}
+
+.seoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 35px;
+  align-items: start;
+}
+
+.seoMainContent {
+  padding: 38px;
+  border: 1px solid #e5e8ef;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 45px rgba(25, 40, 70, 0.06);
+}
+
+.seoMainContent h2 {
+  margin: 0 0 20px;
+  color: #142139;
+  font-size: clamp(25px, 4vw, 36px);
+  line-height: 1.25;
+}
+
+.seoMainContent > p {
+  margin: 0 0 18px;
+  color: #536176;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.seoFeatureBox,
+.seoDocuments,
+.seoFacilities,
+.seoFaqSection {
+  margin-top: 50px;
+}
+
+.seoFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.seoFeatureCard {
+  padding: 24px;
+  border: 1px solid #e5e9f1;
+  border-radius: 14px;
+  background: #f9fafc;
+}
+
+.seoFeatureCard span {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: #ffb400;
+  color: #172033;
+  font-weight: 900;
+}
+
+.seoFeatureCard h3 {
+  margin: 0 0 10px;
+  color: #182235;
+  font-size: 19px;
+}
+
+.seoFeatureCard p {
+  margin: 0;
+  color: #657186;
+  line-height: 1.7;
+}
+
+.seoDocuments {
+  padding: 30px;
+  border-radius: 16px;
+  background: #142139;
+  color: #ffffff;
+}
+
+.seoDocuments h2 {
+  color: #ffffff;
+}
+
+.seoDocuments p,
+.seoDocuments li {
+  color: #dbe3ee;
+  line-height: 1.75;
+}
+
+.seoDocuments ul {
+  padding-left: 22px;
+}
+
+.seoDocuments li {
+  margin: 8px 0;
+}
+
+.seoNotice {
+  margin-top: 20px;
+  padding: 15px;
+  border-left: 4px solid #ffb400;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.seoFacilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.seoFacilityGrid > div {
+  padding: 23px;
+  border-left: 4px solid #ffb400;
+  border-radius: 10px;
+  background: #f7f8fb;
+}
+
+.seoFacilityGrid h3 {
+  margin: 0 0 10px;
+  color: #182235;
+}
+
+.seoFacilityGrid p {
+  margin: 0;
+  color: #637086;
+  line-height: 1.7;
+}
+
+.seoFaqList {
+  display: grid;
+  gap: 12px;
+}
+
+.seoFaqItem {
+  overflow: hidden;
+  border: 1px solid #e2e6ee;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.seoFaqItem summary {
+  padding: 20px;
+  color: #182235;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.seoFaqItem p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: #657186;
+  line-height: 1.7;
+}
+
+.seoSidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.seoBookingCard,
+.seoServicesCard {
+  padding: 27px;
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 14px 38px rgba(20, 35, 65, 0.08);
+}
+
+.seoBookingCard {
+  border-top: 5px solid #ffb400;
+}
+
+.seoBookingCard h2 {
+  margin: 0 0 15px;
+  color: #172033;
+}
+
+.seoBookingCard > p {
+  color: #667288;
+  line-height: 1.7;
+}
+
+.seoCallButton,
+.seoSideWhatsapp {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.seoCallButton {
+  background: #ffb400;
+  color: #172033;
+}
+
+.seoSideWhatsapp {
+  background: #1fa855;
+  color: #ffffff;
+}
+
+.seoContactLink {
+  display: block;
+  margin-top: 17px;
+  color: #172033;
+  font-weight: 800;
+  text-align: center;
+}
+
+.seoServicesCard {
+  display: grid;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.seoServicesCard h3 {
+  margin: 0 0 10px;
+}
+
+.seoServicesCard a {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f5f7fa;
+  color: #25334c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.seoServicesCard a:hover {
+  background: #ffb400;
+}
+
+.seoBottomCta {
+  padding: 55px 0;
+  background: #ffb400;
+}
+
+.seoBottomCtaContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.seoBottomCta p {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.seoBottomCta h2 {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(26px, 4vw, 40px);
+}
+
+.seoBottomButton {
+  min-width: 150px;
+  background: #172033;
+  color: #ffffff;
+}
+
+@media (max-width: 950px) {
+  .seoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .seoSidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 700px) {
+  .seoContainer {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .seoHero,
+  .seoHeroOverlay {
+    min-height: 590px;
+  }
+
+  .seoHeroOverlay {
+    padding: 50px 0;
+  }
+
+  .seoHero h1 {
+    font-size: 39px;
+  }
+
+  .seoHeroDescription {
+    font-size: 16px;
+  }
+
+  .seoHeroButtons {
+    flex-direction: column;
+  }
+
+  .seoPrimaryButton,
+  .seoWhatsappButton {
+    width: 100%;
+  }
+
+  .seoSection {
+    padding: 45px 0;
+  }
+
+  .seoMainContent {
+    padding: 22px 17px;
+  }
+
+  .seoFeatureGrid,
+  .seoFacilityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .seoDocuments {
+    padding: 22px 18px;
+  }
+
+  .seoBottomCtaContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .seoBottomButton {
+    width: 100%;
+  }
+}
