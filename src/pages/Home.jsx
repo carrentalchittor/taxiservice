@@ -49,7 +49,7 @@ export default function Home() {
 
       const whatsappNumber =
         import.meta.env.VITE_WHATSAPP_NUMBER ||
-        "916367697913";
+        "6378162396";
 
       const message = `
 New Vehicle Booking
@@ -100,7 +100,7 @@ Please approve my booking.
 
             <button type="button" onClick={call}>
               <Phone size={18} />
-              Call 6367697913
+              Call 6378162396
             </button>
           </div>
         </div>

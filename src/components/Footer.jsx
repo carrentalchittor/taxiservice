@@ -10,8 +10,8 @@ import {
 import "./footer.css";
 
 export default function Footer() {
-  const callNumber = "6367697913";
-  const whatsappNumber = "916367697913";
+  const callNumber = "6378162396";
+  const whatsappNumber = "916378162396";
 
   const whatsappMessage = encodeURIComponent(
     "Hello, mujhe bike ya taxi rental ke baare me jankari chahiye."
