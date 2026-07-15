@@ -8,12 +8,18 @@ import API, { asset } from "../api";
 import "./admin.css";
 
 export default function AdminVehicles() {
-  const [vehicles, setVehicles] = useState([]);
+  const [vehicles, setVehicles] = useState(
+    []
+  );
+
   const [search, setSearch] = useState("");
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] =
+    useState(true);
+
   const [addingVehicle, setAddingVehicle] =
     useState(false);
+
   const [uploadingQr, setUploadingQr] =
     useState(false);
 
@@ -21,7 +27,11 @@ export default function AdminVehicles() {
     try {
       setLoading(true);
 
-      const response = await API.get("/cars");
+      // Admin ko available aur unavailable
+      // dono vehicles dikhengi
+      const response = await API.get(
+        "/cars/admin/all"
+      );
 
       setVehicles(response.data || []);
     } catch (error) {
@@ -79,6 +89,7 @@ export default function AdminVehicles() {
       setAddingVehicle(true);
 
       const formData = new FormData(form);
+
       const availableInput =
         form.elements.available;
 
@@ -175,9 +186,7 @@ export default function AdminVehicles() {
     }
   };
 
-  const uploadPaymentQr = async (
-    event
-  ) => {
+  const uploadPaymentQr = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -230,7 +239,7 @@ export default function AdminVehicles() {
           <h1>Vehicles & Payment QR</h1>
 
           <p>
-            Bikes and taxis aur payment
+            Cars, bikes, scooties aur payment
             scanner manage karein.
           </p>
         </div>
@@ -272,6 +281,7 @@ export default function AdminVehicles() {
 
           <label>
             Vehicle Type
+
             <select
               name="vehicleType"
               defaultValue="bike"
@@ -293,6 +303,7 @@ export default function AdminVehicles() {
 
           <label>
             Vehicle Name
+
             <input
               type="text"
               name="name"
@@ -304,6 +315,7 @@ export default function AdminVehicles() {
 
           <label>
             Brand
+
             <input
               type="text"
               name="brand"
@@ -314,6 +326,7 @@ export default function AdminVehicles() {
 
           <label>
             Category
+
             <input
               type="text"
               name="type"
@@ -324,6 +337,7 @@ export default function AdminVehicles() {
 
           <label>
             Seats
+
             <input
               type="number"
               name="seats"
@@ -336,6 +350,7 @@ export default function AdminVehicles() {
 
           <label>
             Price Per Day
+
             <input
               type="number"
               name="pricePerDay"
@@ -348,6 +363,7 @@ export default function AdminVehicles() {
 
           <label>
             Fuel
+
             <input
               type="text"
               name="fuel"
@@ -358,6 +374,7 @@ export default function AdminVehicles() {
 
           <label>
             Transmission
+
             <input
               type="text"
               name="transmission"
@@ -368,6 +385,7 @@ export default function AdminVehicles() {
 
           <label>
             Description
+
             <textarea
               name="description"
               placeholder="Vehicle details, luggage capacity, condition etc."
@@ -378,6 +396,7 @@ export default function AdminVehicles() {
 
           <label>
             Vehicle Image
+
             <input
               type="file"
               name="image"
@@ -420,6 +439,7 @@ export default function AdminVehicles() {
 
           <label>
             Upload Payment QR
+
             <input
               type="file"
               name="image"
@@ -457,9 +477,7 @@ export default function AdminVehicles() {
             placeholder="Search vehicle..."
             value={search}
             onChange={(event) =>
-              setSearch(
-                event.target.value
-              )
+              setSearch(event.target.value)
             }
           />
         </div>
@@ -509,7 +527,7 @@ export default function AdminVehicles() {
 
                     <td>
                       {vehicle.vehicleType ||
-                        "car"}
+                        "bike"}
                     </td>
 
                     <td>
