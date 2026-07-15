@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import API from "../api";
 import { useAuth } from "../context/AuthContext";
@@ -7,12 +10,15 @@ import "./login.css";
 
 export default function Login() {
   const [mode, setMode] = useState("login");
-  const [msg, setMsg] = useState("");
-  const [loading, setLoading] =
-    useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const [msg, setMsg] = useState(
+    location.state?.message || ""
+  );
 
   const submit = async (event) => {
     event.preventDefault();
@@ -34,6 +40,7 @@ export default function Login() {
         event.currentTarget.reset();
 
         setMode("login");
+
         setMsg(
           "Registration successful. Please login."
         );
@@ -46,7 +53,8 @@ export default function Login() {
         formData
       );
 
-login(response.data);
+      login(response.data);
+
       navigate(
         response.data.user.role === "admin"
           ? "/admin"
@@ -60,6 +68,16 @@ login(response.data);
     } finally {
       setLoading(false);
     }
+  };
+
+  const changeMode = () => {
+    setMsg("");
+
+    setMode((current) =>
+      current === "login"
+        ? "register"
+        : "login"
+    );
   };
 
   return (
@@ -82,17 +100,30 @@ login(response.data);
                 minLength={2}
                 maxLength={60}
                 autoComplete="name"
+                placeholder="Enter your name"
               />
             </label>
 
             <label>
-              Where are you from?
+              City
               <input
                 name="city"
                 type="text"
                 required
                 minLength={2}
                 maxLength={80}
+                placeholder="Enter your city"
+              />
+            </label>
+
+            <label>
+              Email Address
+              <input
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="example@gmail.com"
               />
             </label>
           </>
@@ -105,7 +136,9 @@ login(response.data);
             type="tel"
             required
             pattern="[6-9][0-9]{9}"
+            maxLength={10}
             autoComplete="tel"
+            placeholder="9876543210"
           />
         </label>
 
@@ -121,10 +154,15 @@ login(response.data);
                 ? "current-password"
                 : "new-password"
             }
+            placeholder="Minimum 8 characters"
           />
         </label>
 
-        {msg && <p className="msg">{msg}</p>}
+        {msg && (
+          <p className="msg">
+            {msg}
+          </p>
+        )}
 
         <button
           type="submit"
@@ -134,21 +172,26 @@ login(response.data);
           {loading
             ? "Please wait..."
             : mode === "login"
-              ? "Login"
-              : "Register"}
+            ? "Login"
+            : "Register"}
         </button>
+
+        {mode === "login" && (
+          <button
+            type="button"
+            className="linkBtn"
+            onClick={() =>
+              navigate("/forgot-password")
+            }
+          >
+            Forgot Password?
+          </button>
+        )}
 
         <button
           type="button"
           className="linkBtn"
-          onClick={() => {
-            setMsg("");
-            setMode(
-              mode === "login"
-                ? "register"
-                : "login"
-            );
-          }}
+          onClick={changeMode}
         >
           {mode === "login"
             ? "New User? Register"
