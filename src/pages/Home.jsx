@@ -82,19 +82,17 @@ Please approve my booking.
     <main>
       <section className="hero">
         <div>
-          
-          <span className="eyebrow">
-            Best Taxi, Car and Bike Rental Service in Chittorgarh &
-            Fast Bike & Taxi Booking
-          </span>
-
           <h1>
-            Book a Bike or Taxi for Every Journey
-          </h1>
-
+  Best Taxi, Car and Bike Rental Service in Chittorgarh
+</h1>
+         <span className="eyebrow">
+  24×7 Bike, Car & Taxi Rental
+</span>
           <p>
-            Affordable bikes, city taxis and outstation cabs with simple online booking, clear pricing and quick WhatsApp support.
-          </p>
+  Book affordable taxis, self-drive cars, cars with drivers
+  and bikes on rent in Chittorgarh for local travel,
+  sightseeing, tourism and outstation trips.
+</p>
           <p>10, Nimbahera Rd, Railway Colony, Chittorgarh, Rajasthan 312001</p>
 
           <div className="actions">
