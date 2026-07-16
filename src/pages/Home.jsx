@@ -27,7 +27,7 @@ export default function Home() {
 
   const call = () => {
     window.location.href = `tel:${
-      import.meta.env.VITE_CALL_NUMBER || "6367697913"
+      import.meta.env.VITE_CALL_NUMBER || "6378162396"
     }`;
   };
 
