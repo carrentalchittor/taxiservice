@@ -1,55 +1,48 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_URL ||
-    "http://localhost:5000/api",
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api";
 
+const API = axios.create({
+  baseURL: API_URL,
   withCredentials: true,
-  timeout: 30000,
+  timeout: 20000,
+  headers: {
+    Accept: "application/json",
+  },
 });
 
-API.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
-API.interceptors.response.use(
-  (response) => response,
-
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-    }
-
-    return Promise.reject(error);
+/**
+ * Cloudinary image ko automatically resize aur compress karta hai.
+ * Normal/local URL ho to same URL return karega.
+ */
+export function asset(url, width = 700) {
+  if (!url) {
+    return "";
   }
-);
 
-export function asset(url) {
-  if (!url) return "";
+  const imageUrl = String(url).trim();
 
   if (
-    url.startsWith("https://") ||
-    url.startsWith("http://")
+    imageUrl.includes("res.cloudinary.com") &&
+    imageUrl.includes("/image/upload/")
   ) {
-    return url;
+    // Transformation pehle se lagi ho to dobara mat lagao
+    if (
+      imageUrl.includes("/f_auto,") ||
+      imageUrl.includes("/q_auto,")
+    ) {
+      return imageUrl;
+    }
+
+    return imageUrl.replace(
+      "/image/upload/",
+      `/image/upload/f_auto,q_auto:eco,w_${width},c_limit/`
+    );
   }
 
-  const backendUrl =
-    import.meta.env.VITE_BACKEND_URL ||
-    "http://localhost:5000";
-
-  return `${backendUrl}${url}`;
+  return imageUrl;
 }
 
 export default API;
